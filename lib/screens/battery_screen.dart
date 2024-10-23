@@ -14,8 +14,8 @@ class BatteryScreen extends StatefulWidget {
 
 class _MyHomePageState extends State<BatteryScreen> {
   final BatteryService _batteryService = BatteryService();
-  String _batteryLevel = 'Unknown battery level.';
-  String _chargingStatus = 'Unknown charging status.';
+  String _batteryLevel = '...';
+  String _chargingStatus = '...';
   bool _isLoading = false;
 
   /// Fetches battery level and charging status.
@@ -70,7 +70,6 @@ class _MyHomePageState extends State<BatteryScreen> {
               child: const Text('Get Battery Info'),
             ),
             const SizedBox(height: 80),
-            if (_isLoading) const CircularProgressIndicator(),
             const LabelTitle(title: 'Battery Level'),
             LabelValue(title: _batteryLevel),
             const SizedBox(height: 20),
@@ -82,6 +81,8 @@ class _MyHomePageState extends State<BatteryScreen> {
               icon: const Icon(Icons.refresh),
               onPressed: _getBatteryInfo,
             ),
+            const SizedBox(height: 20),
+            if (_isLoading) const CircularProgressIndicator(),
           ],
         ),
       ),
