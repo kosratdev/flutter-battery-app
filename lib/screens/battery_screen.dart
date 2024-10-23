@@ -1,3 +1,5 @@
+import 'package:battery_app/widgets/label_title.dart';
+import 'package:battery_app/widgets/label_value.dart';
 import 'package:flutter/material.dart';
 
 class BatteryScreen extends StatefulWidget {
@@ -19,11 +21,23 @@ class _MyHomePageState extends State<BatteryScreen> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Text Content',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(height: 80),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Get Battery Info'),
+            ),
+            const SizedBox(height: 80),
+            const LabelTitle(title: 'Battery Level'),
+            const LabelValue(title: '88%'),
+            const SizedBox(height: 20),
+            const LabelTitle(title: 'Charging Status'),
+            const LabelValue(title: 'Charging'),
+            const SizedBox(height: 80),
+            TextButton.icon(
+              label: const Text('Refresh'),
+              icon: const Icon(Icons.refresh),
+              onPressed: () {},
             ),
           ],
         ),

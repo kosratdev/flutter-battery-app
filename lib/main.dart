@@ -1,6 +1,8 @@
 import 'package:battery_app/screens/battery_screen.dart';
 import 'package:flutter/material.dart';
 
+var bColorScheme = ColorScheme.fromSeed(seedColor: Colors.amber);
+
 void main() {
   runApp(const BatteryApp());
 }
@@ -14,10 +16,21 @@ class BatteryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Battery App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        colorScheme: bColorScheme,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: bColorScheme.primaryContainer,
+            foregroundColor: bColorScheme.onPrimaryContainer,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: bColorScheme.onPrimaryFixedVariant,
+          ),
+        ),
         useMaterial3: true,
       ),
-      home: const BatteryScreen(title: 'Battery Home Page'),
+      home: const BatteryScreen(title: 'Battery Information'),
     );
   }
 }
